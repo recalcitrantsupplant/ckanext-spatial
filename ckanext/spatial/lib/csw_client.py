@@ -21,6 +21,9 @@ class OwsService(object):
     def __call__(self, args):
         return getattr(self, args.operation)(**self._xmd(args))
 
+    def __repr__(self):
+        return str(endpoint)
+
     @classmethod
     def _operations(cls):
         return [x for x in dir(cls) if not x.startswith("_")]
